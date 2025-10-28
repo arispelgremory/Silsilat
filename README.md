@@ -1,3 +1,4 @@
+![Silsilat logo](https://silsilat.finance/images/silsilat.jpg)
 # Silsilat Finance
 
 **Track:** Onchain Finance & RWA
@@ -44,5 +45,87 @@ Silsilat/
 ├── docker-compose.yml  # Docker services configuration
 └── README.md         # This file
 ```
+
+### Getting Started
+For getting started we recommend to use `docker compose` to start all the services.
+
+#### Pre-requisite
+- Docker Compose
+- Git / Github Desktop
+- A Hedera Account
+- A fastforex account (API Key)
+
+### Steps
+Make sure you have registered the hedera account at https://portal.hedera.com/register as the operator account with hbar
+
+1. Clone this project with
+```
+git clone git@github.com:arispelgremory/Silsilat.git
+```
+2. Create a .env file at both frontend and backend
+#### Frontend
+```
+<!-- Assuming terminal is at Silsilat/ -->
+cd frontend
+cp .env.example .env
+```
+
+Then you could modify the .env file where by default it will be:
+```
+NODE_ENV=development
+
+NEXT_PUBLIC_API_URL=http://localhost:9266/api # By default
+NEXT_PUBLIC_SOCKET_URL=http://localhost:9266 # By default
+NEXT_PUBLIC_ENV_URL=https://hashscan.io/testnet/token # Change to mainnet if required
+
+OVERRIDE_TOPIC_ID=
+```
+
+#### Backend
+```
+<!-- Assuming terminal is at Silsilat/frontend -->
+cd ../backend
+cp .env.example .env
+```
+
+Then you could modify the .env file where by default it will be:
+```
+# Runtime environment
+NODE_ENV=production
+JWT_ALGORITHM=RS256
+JWT_PRIVATE_KEY=
+JWT_PUBLIC_KEY=
+JWT_ACCESS_TOKEN_EXPIRATION=15m
+JWT_REFRESH_TOKEN_EXPIRATION=7d
+
+# Database Configurations
+POSTGRES_HOST=postgres # If uses the instance inside docker compose
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=YOUR_PASSWORD_HERE
+POSTGRES_PORT=5432
+POSTGRES_DB=silsilat-db
+DATABASE_URL=postgresql://postgres:iamverysui@postgres:5432/silsilat-db
+
+# Hedera Configurations
+HEDERA_NETWORK=testnet
+HEDERA_OPERATOR_ID=
+HEDERA_OPERATOR_KEY=
+HEDERA_MIRROR_NODE_URL=https://testnet.mirrornode.hedera.com/api/v1
+ENCRYPTION_MASTER_KEY=
+PINATA_API_KEY=
+PINATA_SECRET_API_KEY=
+FUNGIBLE_TOKEN_ID= # Specify this field if you already registered the fungible token that you wish to use, will create automatically if doesn't have
+IPFS_ENCRYPTION_KEY=317bb20e6dc90ec571b74c431f66314abab2fab8964f701e32431a68d6806a52
+OVERRIDE_TOPIC_ID= # Hedera Topic ID
+ADMIN_HEDERA_ACCOUNT_ID= # Same with hedera operator ID
+
+# Redis Configurations
+REDIS_HOST=redis
+REDIS_PORT=6379
+REDIS_PASSWORD=
+REDIS_DB=0
+
+```
+
 ---
 
