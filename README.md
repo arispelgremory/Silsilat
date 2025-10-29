@@ -53,6 +53,7 @@ For getting started we recommend to use `docker compose` to start all the servic
 - Docker Compose
 - Git / Github Desktop
 - A Hedera Account
+- A metal price api account (API Key)
 - A fastforex account (API Key)
 
 ### Steps
@@ -74,11 +75,10 @@ Then you could modify the .env file where by default it will be:
 ```
 NODE_ENV=development
 
-NEXT_PUBLIC_API_URL=http://localhost:9266/api # By default
-NEXT_PUBLIC_SOCKET_URL=http://localhost:9266 # By default
+NEXT_PUBLIC_API_URL=http://localhost:9926/api # By default
+NEXT_PUBLIC_SOCKET_URL=http://localhost:9926 # By default
 NEXT_PUBLIC_ENV_URL=https://hashscan.io/testnet/token # Change to mainnet if required
-
-OVERRIDE_TOPIC_ID=
+NODE_ENV=development
 ```
 
 #### Backend
@@ -95,8 +95,8 @@ NODE_ENV=production
 JWT_ALGORITHM=RS256
 JWT_PRIVATE_KEY=
 JWT_PUBLIC_KEY=
-JWT_ACCESS_TOKEN_EXPIRATION=15m
-JWT_REFRESH_TOKEN_EXPIRATION=7d
+JWT_ACCESS_TOKEN_EXPIRATION=30d
+JWT_REFRESH_TOKEN_EXPIRATION=30d
 
 # Database Configurations
 POSTGRES_HOST=postgres # If uses the instance inside docker compose
@@ -115,7 +115,7 @@ ENCRYPTION_MASTER_KEY=
 PINATA_API_KEY=
 PINATA_SECRET_API_KEY=
 FUNGIBLE_TOKEN_ID= # Specify this field if you already registered the fungible token that you wish to use, will create automatically if doesn't have
-IPFS_ENCRYPTION_KEY=317bb20e6dc90ec571b74c431f66314abab2fab8964f701e32431a68d6806a52
+IPFS_ENCRYPTION_KEY=
 OVERRIDE_TOPIC_ID= # Hedera Topic ID
 ADMIN_HEDERA_ACCOUNT_ID= # Same with hedera operator ID
 
@@ -126,6 +126,55 @@ REDIS_PASSWORD=
 REDIS_DB=0
 
 ```
+#### Agent
+```
+<!-- Assuming terminal is at Silsilat/ -->
+cd agent
+cp .env.example .env
+```
+Then you could modify the .env file where by default it will be:
+```
+OLLAMA_BASE_URL=http://localhost:11434
+DEFAULT_LLM_MODEL=llama3.1:8b
+PHOENIX_COLLECTOR_ENDPOINT=http://localhost:6006/v1/traces
+PHOENIX_SERVICE_NAME=silsilat-gold-evaluator
+JEWELLERY_HAIRCUT_BPS=500
+BAR_HAIRCUT_BPS=100
+MAX_SAFE_LTV=0.80
+MARGIN_CALL_LTV=0.85
+VOL_WINDOW=30
+METALPRICE_API_KEY=
+FASTFOREX_API_KEY=your_fastforex_key_here
+SILSILAT_API_BASE=http://localhost:9487
+SILSILAT_API_KEY=your_silsilat_key_here
+IPFS_ENCRYPTION_KEY=
 
----
+# PINATA FOR IPFS SERVICES
+PINATA_API_KEY=your_pinata_api_key
+PINATA_SECRET_API_KEY=your_pinata_secret_api_key
 
+# HEDERA INFO
+HEDERA_OPERATOR_ID=your_hedera_operator_id
+HEDERA_OPERATOR_KEY=your_hedera_operator_key
+
+# TOPIC IDs
+INPUT_TOPIC_ID=your_hedera_input_topic_id
+OUTPUT_TOPIC_ID=your_hedera_output_topic_id
+```
+
+### How to Start Silsilat
+``` 
+<!-- Assuming terminal is at Silsilat/ -->
+docker compose up -d
+```
+
+### Account created on initialization
+``` 
+# Admin
+email: admin@silsilat.finance
+password: admin123
+
+# Investor
+email: investor@silsilat.finance
+password: investor123
+```
