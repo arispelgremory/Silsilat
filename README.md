@@ -269,6 +269,7 @@ Password: admin123
 
 ## Submission Artifacts
 Pitch deck: https://drive.google.com/file/d/1mvBWx-V3NDk6_Z0qWosWiXgKGcvnoqBk/view?usp=sharing
+
 Video demo:
 
 ## Project Documentation
