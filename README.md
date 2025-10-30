@@ -202,8 +202,8 @@ Ar-Rahnu operators manage loan applications, collateral, and financing operation
 
 **Default Account:**
 ```
-Email: pawnshop@silsilat.finance
-Password: pawnshop123
+Email: ar-rahnu@silsilat.finance
+Password: admin
 ```
 
 **Features:**
@@ -266,3 +266,9 @@ Password: admin123
 ## Hedera Certificate from Team Members
 - [Jasim](https://explore.hashpack.app/nft/0.0.3872504/457)
 - [Tik Joe](https://drive.google.com/file/d/1pycTJRjsKw1_dRq12rv9McH6sbAv7U8O/view?usp=sharing)
+
+## Documentation
+docs.silsilat.finance
+
+## Demo Site
+silsilat.finance
