@@ -69,7 +69,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./backend/dockerfile
+      dockerfile: ./dockerfile
     container_name: silsilat-backend
     ports:
       - "9926:9487"
@@ -96,7 +96,7 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: ./frontend/Dockerfile
+      dockerfile: dockerfile
     container_name: silsilat-frontend
     ports:
       - "9927:3000"
