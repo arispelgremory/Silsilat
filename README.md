@@ -268,7 +268,7 @@ Password: admin123
 - [Tik Joe](https://drive.google.com/file/d/1pycTJRjsKw1_dRq12rv9McH6sbAv7U8O/view?usp=sharing)
 
 ## Submission Artifacts
-Pitch deck: 
+Pitch deck: https://drive.google.com/file/d/1mvBWx-V3NDk6_Z0qWosWiXgKGcvnoqBk/view?usp=sharing
 Video demo:
 
 ## Project Documentation
