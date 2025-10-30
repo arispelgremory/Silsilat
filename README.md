@@ -24,6 +24,10 @@ We leverage HTS to tokenize gold-backed Ar-Rahnu financing into fungible digital
 - `TokenWipeTransaction` - Remove tokens from non-compliant accounts for regulatory adherence
 - `TransferTransaction` - Facilitate instant, transparent transfers of tokenized financing
 
+
+### Economic Justification
+Silsilat unlocks billions of dollars in value trapped within gold-backed pawn and microfinance networks across Africa and Southeast Asia. Today, these sectors operate on cash cycles, turning capital only 3–4 times per year and burdened by 60% higher compliance costs. By tokenizing collateral, automating valuations, and connecting pawnshops to on-chain liquidity pools, Silsilat expands lending capacity up to 5× while lowering funding costs by 30–40%. This transforms an informal, opaque ecosystem into a transparent, regulated, and yield-generating marketplace. At just USD 50 million in tokenized loan volume, Silsilat can generate USD1 million in annual revenue with 70% gross margins, sustained by liquidity, compliance, and transaction fees. More than profit, it delivers measurable inclusion and trust, giving millions of unbanked borrowers affordable access to finance through verifiable, Shariah-compliant digital liquidity.
+
 ### Hedera Consensus Service (HCS)
 We chose HCS for immutable logging of all critical financing events—collateral pledges, repayments, token issuance, and transfers. Each transaction in the Ar-Rahnu lifecycle is timestamped and recorded on an immutable topic, creating an auditable trail that satisfies both Shariah compliance requirements and investor due diligence needs. HCS's $0.0001 per message cost makes it economically feasible to log every micro-transaction, ensuring complete transparency without pricing out small-scale operations. This immutable record builds trust among stakeholders—from micro-entrepreneurs seeking financing to investors providing liquidity—by proving that every gold-backed token is traceable to real collateral.
 
@@ -178,3 +182,21 @@ password: admin123
 email: investor@silsilat.finance
 password: investor123
 ```
+
+## Architecture Diagram
+![Architecture Diagram](./architecutre-diagram.png)
+
+## Deployed Hedera IDs
+### Users
+- 0.0.6617344
+- 0.0.7154335
+- 0.0.7154336
+- 0.0.6617344
+### SAGs
+- 0.0.7154750
+- 0.0.7155070
+- 0.0.7155114
+
+## Assumptions
+- Have a Hedera Account as operator account with public & private keys before system initialization
+- Have fastforex API Keys
