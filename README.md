@@ -243,10 +243,10 @@ Password: admin123
 
 ## Deployed Hedera IDs
 ### Users
-- [0.0.6617344](https://hashscan.io/testnet/account/0.0.6617344)
+- [0.0.6617344](https://hashscan.io/testnet/account/0.0.6617344) Silsilat Treasury
 - [0.0.7154335](https://hashscan.io/testnet/account/0.0.7154335)
 - [0.0.7154336](https://hashscan.io/testnet/account/0.0.7154336)
-- [0.0.6617344](https://hashscan.io/testnet/account/0.0.6617344)
+
 ### SAGs
 - [0.0.7154750](https://hashscan.io/testnet/token/0.0.7154750)
 - [0.0.7155070](https://hashscan.io/testnet/token/0.0.7155070)
@@ -258,12 +258,12 @@ Password: admin123
 
 
 ## Assumptions
-- Have a Hedera Account as operator account with public & private keys before system initialization
+- Have a Hedera Account as an operator account with public & private keys before system initialization
 - Have fastforex API Keys
 - Generated ssh-keygen for JWT Authentication
 
 ## Demo Site
-silsilat.finance
+Visit: silsilat.finance
 
 ## Hedera Certificate from Team Members
 - [Jasim](https://explore.hashpack.app/nft/0.0.3872504/457)
@@ -275,6 +275,6 @@ Pitch deck: https://drive.google.com/file/d/1mvBWx-V3NDk6_Z0qWosWiXgKGcvnoqBk/vi
 Video demo: https://youtu.be/s-yEVtYtf-0
 
 ## Project Documentation
-docs.silsilat.finance
+Read our full project documentation here: docs.silsilat.finance
 
 
