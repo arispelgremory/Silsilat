@@ -1,0 +1,43 @@
+meta {
+  name: Mint Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{local_path}}/token/mint
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{access_token}}
+}
+
+body:json {
+  {
+    "tokenId": "0.0.6866861",
+    "amount": 100,
+    "metadata":{
+      "name":"silver mint",
+      "description":"Cert of pawn",
+      "properties":{
+        "cert_no": "C-12345",
+        "asset_type": "silver",
+        "karat": 22,
+        "weight_g": 22,
+        "valuation": 10000,
+        "enable_minting": true,
+        "mint_share": 1000,
+        "investor_financing_type": "conventional",
+        "investor_roi_percentage": 8,
+        "investor_roi_fixed_amount": 0,
+        "currency": "MYR",
+        "loan_percentage": 60,
+        "loan": 6000,
+        "pawner_interest_p": 5,
+        "tenor_m": 6
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+meta {
+  name: Purchase Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{local_path}}/investor/purchase-token
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "tokenId": "0.0.6961172",
+    "amount":5,
+    "totalValue": 50.00
+  }
+}
+
+vars:pre-request {
+  base_url: http://localhost:3000
+}
+
+tests {
+  test("Status code is 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("Response has success field", function() {
+    expect(res.getBody().success).to.be.true;
+  });
+  
+  test("Response has data field", function() {
+    expect(res.getBody().data).to.be.an('object');
+  });
+  
+  test("Response contains token information", function() {
+    expect(res.getBody().data.tokenId).to.be.a('string');
+    expect(res.getBody().data.serialNumber).to.be.a('number');
+    expect(res.getBody().data.investorAccountId).to.be.a('string');
+  });
+  
+  test("Response contains transaction IDs", function() {
+    expect(res.getBody().data.transferTransactionId).to.be.a('string');
+    expect(res.getBody().data.freezeTransactionId).to.be.a('string');
+  });
+}

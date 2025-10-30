@@ -1,0 +1,1129 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Suyula Liquid API",
+    "description": "Comprehensive API documentation for the Suyula Liquid Shariah-compliant lending platform",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Suyula Liquid API Support",
+      "email": "api-support@suyulaliquid.com",
+      "url": "https://docs.suyulaliquid.com"
+    },
+    "license": {
+      "name": "Proprietary",
+      "url": "https://suyulaliquid.com/license"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.suyulaliquid.com/v1",
+      "description": "Production server"
+    },
+    {
+      "url": "https://staging-api.suyulaliquid.com/v1",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://dev-api.suyulaliquid.com/v1",
+      "description": "Development server"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique user identifier"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "User email address"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User first name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User last name"
+          },
+          "phone": {
+            "type": "string",
+            "description": "User phone number"
+          },
+          "isEmailVerified": {
+            "type": "boolean",
+            "description": "Email verification status"
+          },
+          "isPhoneVerified": {
+            "type": "boolean",
+            "description": "Phone verification status"
+          },
+          "kycStatus": {
+            "type": "string",
+            "enum": ["pending", "in_review", "approved", "rejected"],
+            "description": "KYC verification status"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Account creation timestamp"
+          }
+        },
+        "required": ["id", "email", "firstName", "lastName"]
+      },
+      "JewelryItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Jewelry item name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description"
+          },
+          "metalType": {
+            "type": "string",
+            "enum": ["gold", "silver", "platinum", "palladium"],
+            "description": "Type of metal"
+          },
+          "metalPurity": {
+            "type": "string",
+            "description": "Metal purity (e.g., 24k, 18k, 925)"
+          },
+          "weightGrams": {
+            "type": "number",
+            "format": "float",
+            "description": "Weight in grams"
+          },
+          "estimatedValue": {
+            "type": "number",
+            "format": "float",
+            "description": "AI estimated value"
+          },
+          "marketValue": {
+            "type": "number",
+            "format": "float",
+            "description": "Current market value"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["submitted", "under_review", "approved", "rejected", "stored", "returned"],
+            "description": "Item status"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JewelryImage"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["id", "name", "metalType", "status"]
+      },
+      "JewelryImage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Image URL"
+          },
+          "imageType": {
+            "type": "string",
+            "enum": ["main", "detail", "certificate", "receipt"],
+            "description": "Type of image"
+          },
+          "imageOrder": {
+            "type": "integer",
+            "description": "Display order"
+          }
+        },
+        "required": ["id", "imageUrl", "imageType"]
+      },
+      "LoanApplication": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "applicationNumber": {
+            "type": "string",
+            "description": "Unique application number"
+          },
+          "requestedAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Requested loan amount"
+          },
+          "requestedDurationDays": {
+            "type": "integer",
+            "description": "Requested loan duration in days"
+          },
+          "purpose": {
+            "type": "string",
+            "description": "Loan purpose"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "submitted", "under_review", "approved", "rejected", "cancelled"],
+            "description": "Application status"
+          },
+          "jewelryItem": {
+            "$ref": "#/components/schemas/JewelryItem"
+          },
+          "riskScore": {
+            "type": "number",
+            "format": "float",
+            "description": "AI risk assessment score"
+          },
+          "submittedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["id", "applicationNumber", "requestedAmount", "status"]
+      },
+      "Loan": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "loanNumber": {
+            "type": "string",
+            "description": "Unique loan number"
+          },
+          "principalAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Principal loan amount"
+          },
+          "profitRate": {
+            "type": "number",
+            "format": "float",
+            "description": "Islamic profit rate (annual)"
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Total amount to be repaid"
+          },
+          "outstandingBalance": {
+            "type": "number",
+            "format": "float",
+            "description": "Remaining balance"
+          },
+          "durationDays": {
+            "type": "integer",
+            "description": "Loan duration in days"
+          },
+          "disbursementDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when loan was disbursed"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Final due date"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "completed", "defaulted", "extended", "early_settled"],
+            "description": "Loan status"
+          },
+          "paymentSchedule": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentSchedule"
+            }
+          },
+          "collateral": {
+            "$ref": "#/components/schemas/JewelryItem"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["id", "loanNumber", "principalAmount", "totalAmount", "status"]
+      },
+      "PaymentSchedule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "installmentNumber": {
+            "type": "integer",
+            "description": "Installment sequence number"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Payment due date"
+          },
+          "principalAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Principal portion"
+          },
+          "profitAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Profit portion"
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Total installment amount"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "paid", "overdue", "partial"],
+            "description": "Payment status"
+          },
+          "paidAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount already paid"
+          },
+          "paidDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date payment was made"
+          }
+        },
+        "required": ["id", "installmentNumber", "dueDate", "totalAmount", "status"]
+      },
+      "Payment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "loanId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Associated loan ID"
+          },
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "description": "Payment amount"
+          },
+          "paymentMethod": {
+            "type": "string",
+            "description": "Payment method used"
+          },
+          "paymentReference": {
+            "type": "string",
+            "description": "Payment reference number"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "completed", "failed", "cancelled", "refunded"],
+            "description": "Payment status"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Payment date"
+          },
+          "processingFee": {
+            "type": "number",
+            "format": "float",
+            "description": "Processing fee charged"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["id", "loanId", "amount", "paymentMethod", "status"]
+      },
+      "Investment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "opportunityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Investment opportunity ID"
+          },
+          "investmentAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "Amount invested"
+          },
+          "expectedReturn": {
+            "type": "number",
+            "format": "float",
+            "description": "Expected return amount"
+          },
+          "actualReturn": {
+            "type": "number",
+            "format": "float",
+            "description": "Actual return received"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "completed", "defaulted", "cancelled"],
+            "description": "Investment status"
+          },
+          "investmentDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of investment"
+          },
+          "maturityDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Expected maturity date"
+          },
+          "returnPercentage": {
+            "type": "number",
+            "format": "float",
+            "description": "Return percentage"
+          }
+        },
+        "required": ["id", "opportunityId", "investmentAmount", "status"]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error message"
+          },
+          "details": {
+            "type": "object",
+            "description": "Additional error details"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Error timestamp"
+          }
+        },
+        "required": ["error", "message"]
+      }
+    },
+    "responses": {
+      "UnauthorizedError": {
+        "description": "Authentication information is missing or invalid",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "ForbiddenError": {
+        "description": "Access forbidden - insufficient permissions",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "NotFoundError": {
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "description": "Validation error - invalid input data",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Register new user account",
+        "description": "Create a new user account with email and password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  }
+                },
+                "required": ["email", "password", "firstName", "lastName"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    },
+                    "token": {
+                      "type": "string",
+                      "description": "JWT access token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/ValidationError"
+          },
+          "409": {
+            "description": "Email already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "User login",
+        "description": "Authenticate user and return access token",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    },
+                    "token": {
+                      "type": "string",
+                      "description": "JWT access token"
+                    },
+                    "refreshToken": {
+                      "type": "string",
+                      "description": "JWT refresh token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/users/profile": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user profile",
+        "description": "Retrieve current user's profile information",
+        "security": [{ "BearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "User profile retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Users"],
+        "summary": "Update user profile",
+        "description": "Update current user's profile information",
+        "security": [{ "BearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "dateOfBirth": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "preferredLanguage": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Profile updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/ValidationError"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/jewelry/submit": {
+      "post": {
+        "tags": ["Jewelry"],
+        "summary": "Submit jewelry for valuation",
+        "description": "Submit jewelry item with images for AI valuation",
+        "security": [{ "BearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "metalType": {
+                    "type": "string",
+                    "enum": ["gold", "silver", "platinum", "palladium"]
+                  },
+                  "metalPurity": {
+                    "type": "string"
+                  },
+                  "weightGrams": {
+                    "type": "number"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  },
+                  "certificate": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": ["name", "metalType", "images"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Jewelry submitted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JewelryItem"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/ValidationError"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/jewelry/{id}": {
+      "get": {
+        "tags": ["Jewelry"],
+        "summary": "Get jewelry item details",
+        "description": "Retrieve detailed information about a jewelry item",
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jewelry item retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JewelryItem"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      }
+    },
+    "/loans/apply": {
+      "post": {
+        "tags": ["Loans"],
+        "summary": "Apply for a loan",
+        "description": "Submit a new loan application",
+        "security": [{ "BearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jewelryItemId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "loanProductId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "requestedAmount": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "requestedDurationDays": {
+                    "type": "integer"
+                  },
+                  "purpose": {
+                    "type": "string"
+                  },
+                  "monthlyIncome": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "employmentStatus": {
+                    "type": "string"
+                  }
+                },
+                "required": ["jewelryItemId", "loanProductId", "requestedAmount", "requestedDurationDays"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Loan application submitted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanApplication"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/ValidationError"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/loans/my-loans": {
+      "get": {
+        "tags": ["Loans"],
+        "summary": "Get user's loans",
+        "description": "Retrieve all loans for the current user",
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["active", "completed", "defaulted", "extended", "early_settled"]
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Loans retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "loans": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Loan"
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "page": { "type": "integer" },
+                        "limit": { "type": "integer" },
+                        "total": { "type": "integer" },
+                        "totalPages": { "type": "integer" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/loans/{id}/repay": {
+      "post": {
+        "tags": ["Loans"],
+        "summary": "Make loan payment",
+        "description": "Make a payment towards a loan",
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "paymentMethod": {
+                    "type": "string"
+                  },
+                  "paymentReference": {
+                    "type": "string"
+                  }
+                },
+                "required": ["amount", "paymentMethod"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Payment processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/ValidationError"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      }
+    },
+    "/investments/opportunities": {
+      "get": {
+        "tags": ["Investments"],
+        "summary": "Get investment opportunities",
+        "description": "Retrieve available investment opportunities",
+        "security": [{ "BearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["open", "funded", "closed"]
+            }
+          },
+          {
+            "name": "minAmount",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "maxAmount",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Investment opportunities retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "format": "uuid" },
+                      "title": { "type": "string" },
+                      "description": { "type": "string" },
+                      "targetAmount": { "type": "number" },
+                      "raisedAmount": { "type": "number" },
+                      "minInvestment": { "type": "number" },
+                      "expectedReturnRate": { "type": "number" },
+                      "riskRating": { "type": "string" },
+                      "fundingDeadline": { "type": "string", "format": "date" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/admin/dashboard": {
+      "get": {
+        "tags": ["Admin"],
+        "summary": "Get admin dashboard data",
+        "description": "Retrieve comprehensive dashboard statistics for administrators",
+        "security": [{ "BearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Dashboard data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "totalUsers": { "type": "integer" },
+                    "activeLoans": { "type": "integer" },
+                    "totalLoanValue": { "type": "number" },
+                    "defaultRate": { "type": "number" },
+                    "monthlyGrowth": { "type": "number" },
+                    "recentActivity": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": { "type": "string" },
+                          "description": { "type": "string" },
+                          "timestamp": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "User authentication and authorization"
+    },
+    {
+      "name": "Users",
+      "description": "User profile management"
+    },
+    {
+      "name": "Jewelry",
+      "description": "Jewelry submission and valuation"
+    },
+    {
+      "name": "Loans",
+      "description": "Loan applications and management"
+    },
+    {
+      "name": "Investments",
+      "description": "Investment opportunities and portfolio"
+    },
+    {
+      "name": "Admin",
+      "description": "Administrative functions"
+    }
+  ]
+}

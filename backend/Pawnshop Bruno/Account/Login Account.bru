@@ -1,0 +1,32 @@
+meta {
+  name: Login Account
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{local_path}}/auth/login
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{access_token}}
+}
+
+body:json {
+  {
+    "username":"admin@mail.com",
+    "password":"admin"
+  }
+}
+
+vars:post-response {
+  bearerToken: res.body.data.accessToken
+}
+
+tests {
+  const body = res.body;
+  bru.setVar("access_token", body.data.accessToken);
+  
+}

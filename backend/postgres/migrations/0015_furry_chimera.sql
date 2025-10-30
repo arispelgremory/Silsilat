@@ -1,0 +1,1 @@
+ALTER TABLE "main"."topic" ADD COLUMN "topic_name" varchar(100) NOT NULL;

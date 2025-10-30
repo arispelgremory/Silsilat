@@ -1,0 +1,36 @@
+meta {
+  name: Create New Account
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{local_path}}/auth/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userEmail": "admin@mail.com",
+    "userContactNo": "+601777777777",
+    "userPassword": "admin",
+    "icNo": "99999999999",
+    "icFrontPicture": "front_picture",
+    "icBackPicture": "back_picture",
+    "userFirstName": "Admin",
+    "userLastName": "admin",
+    "gender": "MALE",
+    "addressId": "addr_001",
+    "companyId": "comp_001",
+    "vehicleId": "veh_001",
+    "walletId": "wal_001",
+    "userSkillId": "skill_001",
+    "jobReviewId": "review_001",
+    "roleId": "admin",
+    "sessionId": null,
+    "status": "ACTIVE",
+    "createdBy": "system",
+    "updatedBy": "system"
+  }
+}

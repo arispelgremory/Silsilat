@@ -1,0 +1,22 @@
+meta {
+  name: Create Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{local_path}}/token/create
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{access_token}}
+}
+
+body:json {
+  {
+    "name":"Pawn Platinum Necklace",
+    "symbol":"PPN"
+  }
+}

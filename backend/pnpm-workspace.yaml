@@ -1,0 +1,9 @@
+packages:
+  - .
+
+onlyBuiltDependencies:
+  - '@scarf/scarf'
+  - bcrypt
+  - esbuild
+  - msgpackr-extract
+  - protobufjs

@@ -1,0 +1,29 @@
+meta {
+  name: Get SAG
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{local_path}}/sag?ltv
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ltv: 
+  ~page_size: 3
+  ~page_number: 1
+  ~sort_by: created_at
+  ~sort_order: asc
+  ~id: a9491d4d-ab01-43c3-98fa-e74f61708516
+  ~certNo: F-465654
+  ~status: closed
+  ~risk_level: 
+}
+
+body:json {
+  {
+    "id":"9ed17170-e4ce-406b-8199-fdeebade31fc"
+  }
+}

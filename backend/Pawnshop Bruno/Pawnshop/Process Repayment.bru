@@ -1,0 +1,18 @@
+meta {
+  name: Process Repayment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{local_path}}/pawnshop/repayment
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "tokenId":"0.0.6961172",
+    "sagId": "476bb59b-4a73-43c9-bb32-60df1d590ed3"
+  }
+}

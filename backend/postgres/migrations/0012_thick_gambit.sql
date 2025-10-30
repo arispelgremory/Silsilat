@@ -1,0 +1,1 @@
+ALTER TABLE "main"."fungible_token" ADD COLUMN "price" numeric(20, 2) NOT NULL;

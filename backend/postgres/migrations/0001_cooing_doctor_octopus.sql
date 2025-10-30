@@ -1,0 +1,1 @@
+ALTER TABLE "main"."sag" ADD COLUMN "token_id" varchar(40) DEFAULT '';

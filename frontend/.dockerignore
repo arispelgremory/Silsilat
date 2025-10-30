@@ -1,0 +1,39 @@
+# Ignore node_modules
+node_modules
+
+# Ignore build outputs
+.next
+out
+
+# Ignore test and log files
+*.log
+*.test.js
+*.spec.js
+
+# Ignore temporary files
+*.swp
+*.tmp
+*.temp
+
+# Ignore Docker-specific files
+Dockerfile
+docker-compose.yml
+
+# Ignore environment variables
+#.env
+#.env.local
+#.env.development
+#.env.test
+#.env.production
+
+# Ignore miscellaneous files
+.git
+.gitignore
+README.md
+yarn.lock
+package-lock.json
+npm-debug.log
+.vscode
+.idea
+
+bun.lockb

@@ -1,0 +1,25 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+
+# Dependencies
+node_modules
+**/node_modules
+**/__pycache__
+
+# Build outputs  
+dist
+**/dist
+
+# Documentation
+README.md
+**/*.md
+
+# Frontend (not needed for backend build)
+frontend
+Shoraka Suyula
+

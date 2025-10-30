@@ -1,0 +1,1 @@
+ALTER TABLE "main"."sag" ADD PRIMARY KEY ("sag_id");

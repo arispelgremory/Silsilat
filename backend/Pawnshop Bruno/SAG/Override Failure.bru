@@ -1,0 +1,23 @@
+meta {
+  name: Override Failure
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{local_path}}/sag/override-failure
+  body: json
+  auth: inherit
+}
+
+params:query {
+  ~certNo: F-465654
+  ~status: closed
+}
+
+body:json {
+  {
+    "sag_id":"06789b18-09dd-4ccf-a03d-d2d9cf6e8b79",
+    "ltv":0.87
+  }
+}

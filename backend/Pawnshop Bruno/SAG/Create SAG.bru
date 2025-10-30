@@ -1,0 +1,50 @@
+meta {
+  name: Create SAG
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{local_path}}/sag/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "sagName":"SAGold 3",
+    "sagDescription":"SAGold 3",
+    "expiredAt": "2026-03-18 06:50:38.317511",
+    "certNo": "SAGold-44444",
+    "sagProperties": {
+      "assetType": "Evaluator",
+      "karat": 20,
+      "weightG": 25.0,
+      "valuation": 8000,
+      "enableMinting": true,
+      "mintShare": 5,
+      "investorFinancingType": "conventional",
+      "investorRoiPercentage": 8,
+      "investorRoiFixedAmount": 0,
+      "currency": "MYR",
+      "loanPercentage": 60,
+      "loan": 3200,
+      "pawnerInterestP": 5,
+      "tenorM": 6,
+      "soldShare": 0,
+      "purity": 818
+    },
+    "sagType": "Conventional"
+  }
+}
+
+body:form-urlencoded {
+  : 
+}
+
+body:multipart-form {
+  sagName: Gold
+  sagDescriptoin: Golden Wind
+  sagProperties: @file()
+  : 
+}

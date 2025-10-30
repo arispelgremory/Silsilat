@@ -1,0 +1,41 @@
+meta {
+  name: Mint Fungible Token
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{local_path}}/token/fungible/mint
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "tokenId": "0.0.6970917",
+    "amount": 1
+  }
+}
+
+docs {
+  # Mint Fungible Token
+  
+  Mints additional supply to an existing fungible token.
+  
+  ## Request Body
+  - `tokenId` (string, required): The ID of the fungible token to mint (e.g., "0.0.123456")
+  - `amount` (number, required): The amount of tokens to mint (must be at least 1)
+  
+  ## Response
+  - `success` (boolean): Whether the operation was successful
+  - `data` (object):
+    - `newTotalSupply` (string): The new total supply after minting
+    - `transactionId` (string): The Hedera transaction ID
+    - `receipt` (object): The transaction receipt from Hedera
+  
+  ## Notes
+  - The token must have been created with `TokenSupplyType.Infinite` (or a higher max supply than current)
+  - The account performing the mint must have the supply key
+  - The amount is added to the current supply
+  - The database is automatically updated with the new total supply
+}

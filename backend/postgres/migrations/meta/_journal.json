@@ -1,0 +1,146 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1758157440299,
+      "tag": "0000_premium_silver_sable",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1758590184536,
+      "tag": "0001_cooing_doctor_octopus",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1758590213581,
+      "tag": "0002_wealthy_speed",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1758606163943,
+      "tag": "0003_unique_norman_osborn",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1758606272655,
+      "tag": "0004_familiar_johnny_blaze",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1758610627678,
+      "tag": "0005_foamy_purifiers",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1758610639364,
+      "tag": "0006_fuzzy_warstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1758699114735,
+      "tag": "0007_nifty_speedball",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1759197036461,
+      "tag": "0008_lame_meggan",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1759214571620,
+      "tag": "0009_careful_storm",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1759733886385,
+      "tag": "0010_tan_purifiers",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1759797155482,
+      "tag": "0011_thick_mongoose",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1759797218873,
+      "tag": "0012_thick_gambit",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1759809924180,
+      "tag": "0013_purple_morlocks",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1760506303206,
+      "tag": "0014_mute_tempest",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1760506520050,
+      "tag": "0015_furry_chimera",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1760509417429,
+      "tag": "0016_fancy_roxanne_simpson",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1761019147541,
+      "tag": "0017_optimal_the_stranger",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1761019386411,
+      "tag": "0018_bumpy_captain_marvel",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1761292432977,
+      "tag": "0019_dashing_talos",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "main"."token" ALTER COLUMN "expired_at" SET NOT NULL;

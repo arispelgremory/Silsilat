@@ -1,0 +1,1 @@
+ALTER TABLE "main"."sag" ADD COLUMN "approval_status" varchar(20) DEFAULT 'pending';

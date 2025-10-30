@@ -1,0 +1,66 @@
+meta {
+  name: Refresh Token
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{local_path}}/auth/refresh-token
+  body: json
+  auth: none
+}
+
+headers {
+  cookie: refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQG1haWwuY29tIiwibG9naW5UeXBlIjoiRU1BSUwiLCJyb2xlTmFtZSI6ImFkbWluIiwiaWF0IjoxNzU5NDc1NDgxLCJleHAiOjE3NjAwODAyODF9.kLSueUhUlM7MGu3-cGlEgrI8G50WqM20KFEXTQ2dyjhzQCParStUhx3YPOFDYeZccZM_LdGlQfbhTJ_Isg_IE8a0FEOYEzLfLvocbe8nooj4ISM_My4zLIRIMm6xKBWjveMtM5BrUHYa-ewxtBThJD6WvENnbsfo4Z1H6XnXi31k8xfLGT_Rn4pV6V4YBYcUWXj1sZCov5LwU8vomkNV_OtD39zRRnNPEcePzuDZcoC4tZulVt_PBCXZhuHkcU6tFLV8ONSHSFTLSIfi8qjbDVJpepobbQ7S4YHhqKdreTYsU8STaqGutm8UKdyWHmFWOC4ieiACWApd7SM6u1BMBg
+}
+
+body:json {
+  {
+    "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImludmVzdG9yQG1haWwuY29tIiwibG9naW5UeXBlIjoiRU1BSUwiLCJyb2xlTmFtZSI6ImludmVzdG9yIiwiaWF0IjoxNzYxMTEyOTI3LCJleHAiOjE3NjE3MTc3Mjd9.IC8_u3ci8FwZOz2d4ieveZkSCat_-DVHQNfid6EfJT3Z_s0_Ev1lOAWZRXPMwwbkIvUUtinIwBXMamJpNNoz71R7uwIgWO2rliCCUzjuWlcOPilE2Qgn1XzKxi_G_XR8dNJ2UUdm6fR8IhDSB36ulOSAp1eBMdb3XohcCwqkC7zLQOnVE_cCkIyaOg2SJKomAcRjyimlMtEAXdmSUleGFgUgk805D5v9t0bVL4tAhrZAwgclyQQSt_2qEc_SHlJXR-EZjZnPVDAw2OHWsDyGh0Y2GPQ8TZ-tdQw39xABi9gtmSleI-j-i6Kyw0PTQNgXo1jBRSNeusOIxq6Zevko2A"
+  }
+}
+
+body:multipart-form {
+  refreshToken: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImludmVzdG9yQG1haWwuY29tIiwibG9naW5UeXBlIjoiRU1BSUwiLCJyb2xlTmFtZSI6ImludmVzdG9yIiwiaWF0IjoxNzYxMTEyOTI3LCJleHAiOjE3NjE3MTc3Mjd9.IC8_u3ci8FwZOz2d4ieveZkSCat_-DVHQNfid6EfJT3Z_s0_Ev1lOAWZRXPMwwbkIvUUtinIwBXMamJpNNoz71R7uwIgWO2rliCCUzjuWlcOPilE2Qgn1XzKxi_G_XR8dNJ2UUdm6fR8IhDSB36ulOSAp1eBMdb3XohcCwqkC7zLQOnVE_cCkIyaOg2SJKomAcRjyimlMtEAXdmSUleGFgUgk805D5v9t0bVL4tAhrZAwgclyQQSt_2qEc_SHlJXR-EZjZnPVDAw2OHWsDyGh0Y2GPQ8TZ-tdQw39xABi9gtmSleI-j-i6Kyw0PTQNgXo1jBRSNeusOIxq6Zevko2A
+}
+
+docs {
+  # Refresh Token Endpoint
+  
+  This endpoint refreshes an expired access token using a valid refresh token stored in cookies.
+  
+  ## Request
+  - **Method**: GET
+  - **URL**: `/auth/refresh-token`
+  - **Headers**: 
+    - `Cookie: refreshToken=<refresh_token_value>`
+  
+  ## Response Scenarios
+  
+  ### Success (200)
+  ```json
+  {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  }
+  ```
+  
+  ### Unauthorized (401)
+  ```json
+  {
+    "message": "UNAUTHORIZED"
+  }
+  ```
+  
+  ### Server Error (500)
+  ```json
+  {
+    "message": "INTERNAL_SERVER_ERROR"
+  }
+  ```
+  
+  ## Usage Notes
+  - The refresh token must be provided in the Cookie header
+  - The refresh token should be obtained from the login response
+  - The new access token replaces the old one for subsequent API calls
+  - Refresh tokens typically have a longer expiration time than access tokens
+}

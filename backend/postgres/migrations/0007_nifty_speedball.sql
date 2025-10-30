@@ -1,0 +1,1 @@
+ALTER TABLE "main"."sag" ADD COLUMN "status" varchar(20) DEFAULT 'active';

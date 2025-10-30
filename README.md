@@ -205,4 +205,6 @@ password: investor123
 ## Assumptions
 - Have a Hedera Account as operator account with public & private keys before system initialization
 - Have fastforex API Keys
+- Generated ssh-keygen for JWT Authentication
+
 

@@ -1,0 +1,17 @@
+meta {
+  name: Get Investor balance
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{local_path}}/investor/wallet/balance
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "amount": 10
+  }
+}

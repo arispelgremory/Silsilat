@@ -1,0 +1,1 @@
+ALTER TABLE "main"."sag" ADD COLUMN "original_owner" varchar(40) DEFAULT '';

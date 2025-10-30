@@ -1,0 +1,17 @@
+meta {
+  name: Get Account NFTs Amount
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{local_path}}/pawnshop/repayment/holders/nft/amount
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "tokenId":"0.0.6961172"
+  }
+}

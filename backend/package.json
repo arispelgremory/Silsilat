@@ -1,0 +1,56 @@
+{
+  "name": "express-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/main.ts src/**/*.ts",
+    "start": "node dist/main.js",
+    "build": "esbuild src/main.ts --bundle --platform=node --target=node18 --minify --format=esm --outfile=dist/main.js --packages=external",
+    "migrate": "drizzle-kit generate && drizzle-kit migrate",
+    "initialize": "node init.js"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/morgan": "^1.9.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.3.1",
+    "@types/pg": "^8.15.5",
+    "drizzle-kit": "^0.31.4",
+    "esbuild": "^0.25.11",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  },
+  "dependencies": {
+    "@hashgraph/sdk": "^2.72.0",
+    "@types/cors": "^2.8.19",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "bullmq": "^5.58.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "drizzle-orm": "^0.44.5",
+    "express": "^5.1.0",
+    "express-oas-generator": "^1.0.48",
+    "helmet": "^8.1.0",
+    "ioredis": "^5.8.0",
+    "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
+    "morgan": "^1.10.1",
+    "multer": "2.0.2",
+    "pg": "^8.16.3",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "vite-express": "^0.21.1",
+    "zod": "^4.1.8"
+  },
+  "_moduleAliases": {
+    "@": "src",
+    "@public": "public"
+  }
+}

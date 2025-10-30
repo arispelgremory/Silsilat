@@ -1,0 +1,1 @@
+ALTER TABLE "main"."user" ADD COLUMN "balance" numeric(20, 2) DEFAULT '0' NOT NULL;
