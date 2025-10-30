@@ -239,7 +239,7 @@ Password: admin123
 **Note:** After first login, it is highly recommended to change the default passwords for security purposes.
 
 ## Architecture Diagram
-![Architecture Diagram](./architecutre-diagram.png)
+![Architecture Diagram](./architecture-diagram.png)
 
 ## Deployed Hedera IDs
 ### Users
