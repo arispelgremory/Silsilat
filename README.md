@@ -172,16 +172,71 @@ OUTPUT_TOPIC_ID=your_hedera_output_topic_id
 docker compose up -d
 ```
 
-### Account created on initialization
-``` 
-# Admin
-email: admin@silsilat.finance
-password: admin123
+### Account created on initialization & Onboarding
 
-# Investor
-email: investor@silsilat.finance
-password: investor123
+Silsilat Finance provides three different user roles, each with specific access routes:
+
+#### 1. **Investor Role**
+Investors can view and purchase tokenized gold-backed financing opportunities.
+
+**Access Route:** `/login` or `http://localhost:9927/login`
+
+**Default Account:**
 ```
+Email: investor@silsilat.finance
+Password: investor123
+```
+
+**Features:**
+- Browse available SAG (Shariah Asset Group) tokens
+- Purchase tokenized financing
+- Track portfolio and returns
+- View transaction history
+
+---
+
+#### 2. **Ar-Rahnu (Pawnshop) Role**
+Ar-Rahnu operators manage loan applications, collateral, and financing operations.
+
+**Access Route:** `/admin/login` or `http://localhost:9927/admin/login`
+
+**Default Account:**
+```
+Email: pawnshop@silsilat.finance
+Password: pawnshop123
+```
+
+**Features:**
+- Process loan applications
+- Manage gold collateral
+- Create SAG tokens
+- Handle repayments
+- Monitor compliance
+
+---
+
+#### 3. **Admin Role**
+Administrators have full system access for platform management and oversight.
+
+**Access Route:** `/admin/login` or `http://localhost:9927/admin/login`
+
+**Default Account:**
+```
+Email: admin@silsilat.finance
+Password: admin123
+```
+
+**Features:**
+- Full platform oversight
+- User management
+- System configuration
+- Compliance monitoring
+- Override capabilities
+- Analytics and reporting
+
+---
+
+**Note:** After first login, it is highly recommended to change the default passwords for security purposes.
 
 ## Architecture Diagram
 ![Architecture Diagram](./architecutre-diagram.png)
@@ -208,3 +263,6 @@ password: investor123
 - Generated ssh-keygen for JWT Authentication
 
 
+## Hedera Certificate from Team Members
+- [Jasim](https://explore.hashpack.app/nft/0.0.3872504/457)
+- [Tik Joe](https://drive.google.com/file/d/1pycTJRjsKw1_dRq12rv9McH6sbAv7U8O/view?usp=sharing)
