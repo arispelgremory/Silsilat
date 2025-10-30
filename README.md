@@ -262,6 +262,8 @@ Password: admin123
 - Have fastforex API Keys
 - Generated ssh-keygen for JWT Authentication
 
+## Demo Site
+silsilat.finance
 
 ## Hedera Certificate from Team Members
 - [Jasim](https://explore.hashpack.app/nft/0.0.3872504/457)
@@ -270,10 +272,9 @@ Password: admin123
 ## Submission Artifacts
 Pitch deck: https://drive.google.com/file/d/1mvBWx-V3NDk6_Z0qWosWiXgKGcvnoqBk/view?usp=sharing
 
-Video demo:
+Video demo: https://youtu.be/s-yEVtYtf-0
 
 ## Project Documentation
 docs.silsilat.finance
 
-## Demo Site
-silsilat.finance
+
