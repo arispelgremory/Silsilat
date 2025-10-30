@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, LinkedinIcon, Twitter, X } from "lucide-react"
 import { Logo } from "@/components/logo"
 
 export function Footer() {
@@ -14,19 +14,11 @@ export function Footer() {
               for your liquidity needs.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-ivory/70 hover:text-brightGold">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
+              <a href="https://x.com/silsilatfinance" className="text-ivory/70 hover:text-brightGold">
+                <X className="h-5 w-5" />
+                <span className="sr-only">X</span>
               </a>
-              <a href="#" className="text-ivory/70 hover:text-brightGold">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </a>
-              <a href="#" className="text-ivory/70 hover:text-brightGold">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="#" className="text-ivory/70 hover:text-brightGold">
+              <a href="https://www.linkedin.com/company/silsilat-finance" className="text-ivory/70 hover:text-brightGold">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </a>
@@ -95,24 +87,6 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-brightGold font-semibold mb-4">Contact</h3>
-            <address className="not-italic space-y-2 text-sm">
-              <p>United Allied Business Sdn Bhd</p>
-              <p>B-5-33, Emhub, Kota Damansara</p>
-              <p>47810 Petaling Jaya, Selangor</p>
-              <p className="pt-2">
-                <a href="tel:+60322011834" className="hover:text-brightGold">
-                  
-                </a>
-              </p>
-              <p>
-                <a href="mailto:frank@unitedalliedbusiness.com" className="hover:text-brightGold">
-                  frank@unitedalliedbusiness.com
-                </a>
-              </p>
-            </address>
-          </div>
         </div>
 
         <div className="border-t border-gold/20 mt-12 pt-8 text-sm text-center">

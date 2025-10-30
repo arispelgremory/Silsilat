@@ -160,16 +160,8 @@ export default function TermsPage() {
           </p>
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">14. Contact Information</h2>
-          <p>If you have any questions about these Terms, please contact us at:</p>
-          <p>
-            United Allied Business Sdn Bhd
-            <br />
-            B-5-33, Emhub, Kota Damansara
-            <br />
-            47810 Petaling Jaya, Selangor
-            <br />
-            Email: legal@silsilat.finance
-          </p>
+          <p>If you have any questions about these Terms, please contact us at: @silsilatfinance on X</p>
+          
 
           <div className="my-8 p-4 bg-gray-100 rounded-lg">
             <p className="font-semibold">

@@ -50,20 +50,6 @@ export default function ContactPage() {
         <Card>
           <CardContent className="flex flex-col items-center text-center p-6">
             <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-              <MapPin className="h-6 w-6 text-emerald-600" />
-            </div>
-            <h3 className="text-lg font-semibold mb-2">Our Office</h3>
-            <address className="not-italic text-muted-foreground">
-              <p>United Allied Business Sdn Bhd</p>
-              <p>B-5-33, Emhub, Kota Damansara</p>
-              <p>47810 Petaling Jaya, Selangor</p>
-            </address>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="flex flex-col items-center text-center p-6">
-            <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
               <Phone className="h-6 w-6 text-emerald-600" />
             </div>
             <h3 className="text-lg font-semibold mb-2">Phone</h3>

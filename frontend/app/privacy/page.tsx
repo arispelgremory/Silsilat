@@ -140,15 +140,7 @@ export default function PrivacyPage() {
           <h2 className="text-2xl font-semibold mt-8 mb-4">12. Contact Us</h2>
           <p>
             If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us
-            at:
-          </p>
-          <p>
-            United Allied Business Sdn Bhd
-            <br />
-            B-5-33, Emhub, Kota Damansara
-            <br />
-            <br />
-            Email: privacy@silsilat.finance
+            at: @silsilatfinance on X
           </p>
 
           <div className="my-8 p-4 bg-gray-100 rounded-lg">

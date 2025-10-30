@@ -20,15 +20,7 @@ export async function generateChatResponse(query: string, history: Message[]): P
     lowerQuery.includes("phone") ||
     lowerQuery.includes("call")
   ) {
-    return `You can contact us at:
-    
-Email: frank@unitedalliedbusiness.com
-Phone: 
-
-Our office is located at:
-United Allied Business Sdn Bhd
-B-5-33, Emhub, Kota Damansara
-47810 Petaling Jaya, Selangor`
+    return `You can contact us at @silsilatfinance on X`
   }
 
   // Check if query is about login or account
