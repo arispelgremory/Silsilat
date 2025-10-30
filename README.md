@@ -267,7 +267,11 @@ Password: admin123
 - [Jasim](https://explore.hashpack.app/nft/0.0.3872504/457)
 - [Tik Joe](https://drive.google.com/file/d/1pycTJRjsKw1_dRq12rv9McH6sbAv7U8O/view?usp=sharing)
 
-## Documentation
+## Submission Artifacts
+Pitch deck: 
+Video demo:
+
+## Project Documentation
 docs.silsilat.finance
 
 ## Demo Site
