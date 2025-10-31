@@ -286,7 +286,8 @@ The **liquidity pool** is the economic engine of **Silsilat**, ensuring instant 
 - Generated ssh-keygen for JWT Authentication
 
 ## Demo Site
-Visit: silsilat.finance
+
+[Silsilat Finance]:(https://silsilat.finance)
 
 ## Hedera Certificate from Team Members
 - [Jasim](https://explore.hashpack.app/nft/0.0.3872504/457)
