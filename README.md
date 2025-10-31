@@ -302,6 +302,7 @@ Read our full project documentation here: [Docs](https://docs.silsilat.finance)
 ## Project Roadmap
 
 - AI Policy Engine 2.0 – Adaptive compliance agent that automatically updates regulatory rule packs per jurisdiction.
+- Enhance Liquidity Pool - Improve smart contract for full decentralization and improve security like precent reentrancy.
 - Risk Scoring Model – On-chain AI-driven borrower and asset risk profiles integrated with Hedera trace logs.
 - Investor Yield Optimizer – Dynamic allocation across liquidity pools to balance risk and return.
 - Human-in-the-Loop Dashboard v2 – Real-time override, model retraining, and agent performance analytics.
