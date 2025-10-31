@@ -276,7 +276,7 @@ The **liquidity pool** is the economic engine of **Silsilat**, ensuring instant 
 ### Topic Ids
 [add]
 
-###Smart Contract Id
+### Smart Contract Id
 [add]
 
 ## Assumptions
@@ -297,7 +297,7 @@ Visit: silsilat.finance
 [Video demo](https://youtu.be/s-yEVtYtf-0)
 
 ## Project Documentation
-Read our full project documentation here: [Docs](docs.silsilat.finance)
+Read our full project documentation here: [Docs](https://docs.silsilat.finance)
 
 ## Project Roadmap
 
