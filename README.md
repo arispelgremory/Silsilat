@@ -274,8 +274,8 @@ The **liquidity pool** is the economic engine of **Silsilat**, ensuring instant 
 ### Topic Ids
 [add]
 
-Smart Contract Ids
-
+###Smart Contract Id
+[add]
 
 ## Assumptions
 - Have a Hedera Account as an operator account with public & private keys before system initialization
@@ -295,7 +295,7 @@ Visit: silsilat.finance
 [Video demo](https://youtu.be/s-yEVtYtf-0)
 
 ## Project Documentation
-Read our full project documentation here: docs.silsilat.finance
+Read our full project documentation here: [Docs](docs.silsilat.finance)
 
 ## Project Roadmap
 
