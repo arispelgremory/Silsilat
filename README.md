@@ -262,6 +262,7 @@ The **liquidity pool** is the economic engine of **Silsilat**, ensuring instant 
 - [0.0.7154750](https://hashscan.io/testnet/token/0.0.7154750)
 - [0.0.7155070](https://hashscan.io/testnet/token/0.0.7155070)
 - [0.0.7155114](https://hashscan.io/testnet/token/0.0.7155114)
+- [0.0.7160270](https://hashscan.io/testnet/token/0.0.7160270)
 
 ### Proof of transactions
 - [Proof of transaction 1](https://hashscan.io/testnet/transaction/1761723773.975551287)
