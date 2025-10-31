@@ -274,10 +274,11 @@ The **liquidity pool** is the economic engine of **Silsilat**, ensuring instant 
 - [Proof of transaction 2](https://hashscan.io/testnet/transaction/1761713460.366859998)
 
 ### Topic Ids
-[add]
+- [0.0.7068333](https://hashscan.io/testnet/topic/0.0.7068333)
+- [0.0.7068332](https://hashscan.io/testnet/topic/0.0.7068332)
 
 ### Smart Contract Id
-[add]
+- [0.0.7115368](https://hashscan.io/testnet/contract/0.0.7115368)
 
 ## Assumptions
 - Have a Hedera Account as an operator account with public & private keys before system initialization
