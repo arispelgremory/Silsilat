@@ -290,9 +290,9 @@ Visit: silsilat.finance
 - [Tik Joe](https://drive.google.com/file/d/1pycTJRjsKw1_dRq12rv9McH6sbAv7U8O/view?usp=sharing)
 
 ## Submission Artifacts
-Pitch deck: https://drive.google.com/file/d/1mvBWx-V3NDk6_Z0qWosWiXgKGcvnoqBk/view?usp=sharing
+[Pitch deck](https://drive.google.com/file/d/1FJV9SuW432Vt5k6tGyAgefy7QB72qrtq/view?usp=sharing)
 
-Video demo: https://youtu.be/s-yEVtYtf-0
+[Video demo](https://youtu.be/s-yEVtYtf-0)
 
 ## Project Documentation
 Read our full project documentation here: docs.silsilat.finance
