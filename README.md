@@ -37,7 +37,7 @@ We use HSCS to power our automated liquidity pool mechanics. Smart contracts man
 - `TransferTransaction` - Facilitate instant, transparent transfers of tokenized financing
 - `TopicCreateTransaction` - Establish immutable audit logs for different financing pools
 - `TopicMessageSubmitTransaction` - Record all financing events with timestamps and proof
-- [add hcs transactions]
+
 
 
 ---
