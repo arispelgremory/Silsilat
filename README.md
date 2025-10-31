@@ -237,7 +237,7 @@ Password: admin123
 
 **Note:** After first login, it is highly recommended to change the default passwords for security purposes.
 
-## Agentic Framework
+## Agentic Risk and Compliance Framework
 
 Silsilat uses a network of **autonomous AI agents** that continuously perform risk and compliance inference at the transaction layer. Each agent validates collateral value, borrower credibility, and Shariah compliance based on local policy rules, ensuring decisions remain explainable and verifiable. External data sources for gold market price and forex conversion are accessible to the agents. To achieve **traceability and observability**, all agent outputs are logged through **Arize Phoenix** and stored on HCS topics for immutability and auditability, capturing model behavior and compliance rationale as structured traces on Hedera. A **Human-in-the-Loop dashboard** allows administrators to review, override, or retrain models when anomalies are detected. This architecture delivers continuous compliance assurance, adaptive learning, and full transparency for regulators and auditors.
 
