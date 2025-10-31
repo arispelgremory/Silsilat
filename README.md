@@ -9,6 +9,9 @@
 
 Creating a liquidity bridge that transforms gold-backed Ar-Rahnu financing into a transparent, instant, and Shariah-compliant digital asset ecosystem empowering micro-entrepreneurs, cooperatives, and investors through traceable, data-driven finance.
 
+## Economic Justification
+Silsilat unlocks billions of dollars in value trapped within gold-backed pawn and microfinance networks across Africa and Southeast Asia. Today, these sectors operate on cash cycles, turning capital only 3–4 times per year and burdened by 60% higher compliance costs. By tokenizing collateral, automating valuations, and connecting pawnshops to on-chain liquidity pools, Silsilat expands lending capacity up to 5× while lowering funding costs by 30–40%. This transforms an informal, opaque ecosystem into a transparent, regulated, and yield-generating marketplace. At just USD 50 million in tokenized loan volume, Silsilat can generate USD1 million in annual revenue with 70% gross margins, sustained by liquidity, compliance, and transaction fees. More than profit, it delivers measurable inclusion and trust, giving millions of unbanked borrowers affordable access to finance through verifiable, Shariah-compliant digital liquidity.
+
 ---
 
 ## 🔗 Hedera Integration Summary
@@ -18,6 +21,9 @@ We leverage HTS to tokenize gold-backed Ar-Rahnu financing into fungible digital
 
 ### Hedera Consensus Service (HCS)
 We chose HCS for immutable logging of all critical financing events—collateral pledges, repayments, token issuance, and transfers. Each transaction in the Ar-Rahnu lifecycle is timestamped and recorded on an immutable topic, creating an auditable trail that satisfies both AI risk and compliance requirements and investor due diligence needs. HCS's $0.0001 per message cost makes it economically feasible to log every micro-transaction, ensuring complete transparency without pricing out small-scale operations. This immutable record builds trust among stakeholders—from micro-entrepreneurs seeking financing to investors providing liquidity—by proving that every gold-backed token is traceable to real collateral.
+
+### Process Flow
+![Process Flow](./process-flow.png)
 
 ### Hedera Smart Contract Service (HSCS)
 We use HSCS to power our automated liquidity pool mechanics. Smart contracts manage token minting, redemption, and yield distribution for the LQT token, ensuring every transaction follows encoded into immutable logic. When a pawnshop tokenizes gold collateral, the smart contract automatically validates policy constraints, executes liquidity release, and records the transaction on the Hedera Consensus Service. This eliminates the need for intermediaries, guarantees trustless settlement, and prevents manipulation of rates or timing. HSCS ensures the liquidity pool operates transparently, efficiently.
@@ -33,9 +39,6 @@ We use HSCS to power our automated liquidity pool mechanics. Smart contracts man
 - `TopicMessageSubmitTransaction` - Record all financing events with timestamps and proof
 - [add hcs transactions]
 
-
-### Economic Justification
-Silsilat unlocks billions of dollars in value trapped within gold-backed pawn and microfinance networks across Africa and Southeast Asia. Today, these sectors operate on cash cycles, turning capital only 3–4 times per year and burdened by 60% higher compliance costs. By tokenizing collateral, automating valuations, and connecting pawnshops to on-chain liquidity pools, Silsilat expands lending capacity up to 5× while lowering funding costs by 30–40%. This transforms an informal, opaque ecosystem into a transparent, regulated, and yield-generating marketplace. At just USD 50 million in tokenized loan volume, Silsilat can generate USD1 million in annual revenue with 70% gross margins, sustained by liquidity, compliance, and transaction fees. More than profit, it delivers measurable inclusion and trust, giving millions of unbanked borrowers affordable access to finance through verifiable, Shariah-compliant digital liquidity.
 
 ---
 
