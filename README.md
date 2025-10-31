@@ -1,7 +1,7 @@
 ![Silsilat logo](https://silsilat.finance/images/silsilat.jpg)
 # Silsilat Finance
 
-**Track:** Onchain Finance & RWA
+**Track:** Onchain Finance & Real-World Assets
 
 ---
 
@@ -16,6 +16,9 @@ Creating a liquidity bridge that transforms gold-backed Ar-Rahnu financing into 
 ### Hedera Token Service (HTS)
 We leverage HTS to tokenize gold-backed Ar-Rahnu financing into fungible digital assets that represent real-world collateral. This service is critical for Silsilat Finance because it provides native compliance features (freeze/unfreeze), programmable supply management (mint/burn), and ultra-low transaction costs ($0.001 per transfer). For micro-entrepreneurs and cooperatives operating on thin margins, HTS's predictable fee structure ensures that tokenizing their gold collateral remains economically viable while maintaining full Shariah compliance through transparent, auditable on-chain records. The ability to associate tokens with accounts ensures controlled distribution, while wipe functionality provides necessary safeguards for regulatory compliance.
 
+### Hedera Consensus Service (HCS)
+We chose HCS for immutable logging of all critical financing events—collateral pledges, repayments, token issuance, and transfers. Each transaction in the Ar-Rahnu lifecycle is timestamped and recorded on an immutable topic, creating an auditable trail that satisfies both Shariah compliance requirements and investor due diligence needs. HCS's $0.0001 per message cost makes it economically feasible to log every micro-transaction, ensuring complete transparency without pricing out small-scale operations. This immutable record builds trust among stakeholders—from micro-entrepreneurs seeking financing to investors providing liquidity—by proving that every gold-backed token is traceable to real collateral.
+
 **Key Transactions Used:**
 - `TokenMintTransaction` - Create new tokens representing newly pledged gold collateral
 - `TokenBurnTransaction` - Remove tokens when Ar-Rahnu financing is repaid
@@ -23,17 +26,13 @@ We leverage HTS to tokenize gold-backed Ar-Rahnu financing into fungible digital
 - `TokenAssociateTransaction` - Enable accounts to hold gold-backed tokens
 - `TokenWipeTransaction` - Remove tokens from non-compliant accounts for regulatory adherence
 - `TransferTransaction` - Facilitate instant, transparent transfers of tokenized financing
+- `TopicCreateTransaction` - Establish immutable audit logs for different financing pools
+- `TopicMessageSubmitTransaction` - Record all financing events with timestamps and proof
+- [add hcs transactions]
 
 
 ### Economic Justification
 Silsilat unlocks billions of dollars in value trapped within gold-backed pawn and microfinance networks across Africa and Southeast Asia. Today, these sectors operate on cash cycles, turning capital only 3–4 times per year and burdened by 60% higher compliance costs. By tokenizing collateral, automating valuations, and connecting pawnshops to on-chain liquidity pools, Silsilat expands lending capacity up to 5× while lowering funding costs by 30–40%. This transforms an informal, opaque ecosystem into a transparent, regulated, and yield-generating marketplace. At just USD 50 million in tokenized loan volume, Silsilat can generate USD1 million in annual revenue with 70% gross margins, sustained by liquidity, compliance, and transaction fees. More than profit, it delivers measurable inclusion and trust, giving millions of unbanked borrowers affordable access to finance through verifiable, Shariah-compliant digital liquidity.
-
-### Hedera Consensus Service (HCS)
-We chose HCS for immutable logging of all critical financing events—collateral pledges, repayments, token issuance, and transfers. Each transaction in the Ar-Rahnu lifecycle is timestamped and recorded on an immutable topic, creating an auditable trail that satisfies both Shariah compliance requirements and investor due diligence needs. HCS's $0.0001 per message cost makes it economically feasible to log every micro-transaction, ensuring complete transparency without pricing out small-scale operations. This immutable record builds trust among stakeholders—from micro-entrepreneurs seeking financing to investors providing liquidity—by proving that every gold-backed token is traceable to real collateral.
-
-**Key Transactions Used:**
-- `TopicCreateTransaction` - Establish immutable audit logs for different financing pools
-- `TopicMessageSubmitTransaction` - Record all financing events with timestamps and proof
 
 ---
 
@@ -188,7 +187,7 @@ Password: investor123
 ```
 
 **Features:**
-- Browse available SAG (Shariah Asset Group) tokens
+- Browse available SAG (Tokenized Pawn Receipts) NFTs
 - Purchase tokenized financing
 - Track portfolio and returns
 - View transaction history
@@ -238,6 +237,15 @@ Password: admin123
 
 **Note:** After first login, it is highly recommended to change the default passwords for security purposes.
 
+## Agentic Framework
+
+Silsilat uses a network of **autonomous AI agents** that continuously perform risk and compliance inference at the transaction layer. Each agent validates collateral value, borrower credibility, and Shariah compliance based on local policy rules, ensuring decisions remain explainable and verifiable. External data sources for gold market price and forex conversion are accessible to the agents. To achieve **traceability and observability**, all agent outputs are logged through **Arize Phoenix** and stored on HCS topics for immutability and auditability, capturing model behavior and compliance rationale as structured traces on Hedera. A **Human-in-the-Loop dashboard** allows administrators to review, override, or retrain models when anomalies are detected. This architecture delivers continuous compliance assurance, adaptive learning, and full transparency for regulators and auditors.
+
+## Liquidity Pool
+
+The **liquidity pool** is the economic engine of **Silsilat**, ensuring instant access to capital for pawnshops without waiting for counterparties. It aggregates investor funds into decentralized pools that automatically purchase tokenized gold assets (SAG tokens), releasing cash to the originating pawnshop within seconds. This design eliminates liquidity bottlenecks and stabilizes yields through automated market making, allowing investors to earn consistent, asset-backed returns. The liquidity pool is the key design feature that transforms Silsilat from a traditional lending process into a **real-time, programmable liquidity network**.
+
+
 ## Architecture Diagram
 ![Architecture Diagram](./architecture-diagram.png)
 
@@ -256,6 +264,8 @@ Password: admin123
 - [Proof of transaction 1](https://hashscan.io/testnet/transaction/1761723773.975551287)
 - [Proof of transaction 2](https://hashscan.io/testnet/transaction/1761713460.366859998)
 
+### Topic Ids
+[add]
 
 ## Assumptions
 - Have a Hedera Account as an operator account with public & private keys before system initialization
@@ -277,4 +287,11 @@ Video demo: https://youtu.be/s-yEVtYtf-0
 ## Project Documentation
 Read our full project documentation here: docs.silsilat.finance
 
+## Project Roadmap
 
+- AI Policy Engine 2.0 – Adaptive compliance agent that automatically updates Shariah and regulatory rule packs per jurisdiction.
+- Risk Scoring Model – On-chain AI-driven borrower and asset risk profiles integrated with Hedera trace logs.
+- Investor Yield Optimizer – Dynamic allocation across liquidity pools to balance risk and return.
+- Human-in-the-Loop Dashboard v2 – Real-time override, model retraining, and agent performance analytics.
+- Multi-Currency Support – Tokenization for MYR, IDR, and BND denominated liquidity.
+- MCP Server - endpoints for Silsilat’s core services (Hedera + Custody + Phoenix + Policy) through a secure interface.
