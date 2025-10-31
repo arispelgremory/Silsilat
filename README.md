@@ -17,7 +17,10 @@ Creating a liquidity bridge that transforms gold-backed Ar-Rahnu financing into 
 We leverage HTS to tokenize gold-backed Ar-Rahnu financing into fungible digital assets that represent real-world collateral. This service is critical for Silsilat Finance because it provides native compliance features (freeze/unfreeze), programmable supply management (mint/burn), and ultra-low transaction costs ($0.001 per transfer). For micro-entrepreneurs and cooperatives operating on thin margins, HTS's predictable fee structure ensures that tokenizing their gold collateral remains economically viable while maintaining full Shariah compliance through transparent, auditable on-chain records. The ability to associate tokens with accounts ensures controlled distribution, while wipe functionality provides necessary safeguards for regulatory compliance.
 
 ### Hedera Consensus Service (HCS)
-We chose HCS for immutable logging of all critical financing events—collateral pledges, repayments, token issuance, and transfers. Each transaction in the Ar-Rahnu lifecycle is timestamped and recorded on an immutable topic, creating an auditable trail that satisfies both Shariah compliance requirements and investor due diligence needs. HCS's $0.0001 per message cost makes it economically feasible to log every micro-transaction, ensuring complete transparency without pricing out small-scale operations. This immutable record builds trust among stakeholders—from micro-entrepreneurs seeking financing to investors providing liquidity—by proving that every gold-backed token is traceable to real collateral.
+We chose HCS for immutable logging of all critical financing events—collateral pledges, repayments, token issuance, and transfers. Each transaction in the Ar-Rahnu lifecycle is timestamped and recorded on an immutable topic, creating an auditable trail that satisfies both AI risk and compliance requirements and investor due diligence needs. HCS's $0.0001 per message cost makes it economically feasible to log every micro-transaction, ensuring complete transparency without pricing out small-scale operations. This immutable record builds trust among stakeholders—from micro-entrepreneurs seeking financing to investors providing liquidity—by proving that every gold-backed token is traceable to real collateral.
+
+### Hedera Smart Contract Service (HSCS)
+We use HSCS to power our automated liquidity pool mechanics. Smart contracts manage token minting, redemption, and yield distribution for the LQT token, ensuring every transaction follows encoded into immutable logic. When a pawnshop tokenizes gold collateral, the smart contract automatically validates policy constraints, executes liquidity release, and records the transaction on the Hedera Consensus Service. This eliminates the need for intermediaries, guarantees trustless settlement, and prevents manipulation of rates or timing. HSCS ensures the liquidity pool operates transparently, efficiently.
 
 **Key Transactions Used:**
 - `TokenMintTransaction` - Create new tokens representing newly pledged gold collateral
@@ -267,6 +270,9 @@ The **liquidity pool** is the economic engine of **Silsilat**, ensuring instant 
 ### Topic Ids
 [add]
 
+Smart Contract Ids
+
+
 ## Assumptions
 - Have a Hedera Account as an operator account with public & private keys before system initialization
 - Have fastforex API Keys
@@ -289,7 +295,7 @@ Read our full project documentation here: docs.silsilat.finance
 
 ## Project Roadmap
 
-- AI Policy Engine 2.0 – Adaptive compliance agent that automatically updates Shariah and regulatory rule packs per jurisdiction.
+- AI Policy Engine 2.0 – Adaptive compliance agent that automatically updates regulatory rule packs per jurisdiction.
 - Risk Scoring Model – On-chain AI-driven borrower and asset risk profiles integrated with Hedera trace logs.
 - Investor Yield Optimizer – Dynamic allocation across liquidity pools to balance risk and return.
 - Human-in-the-Loop Dashboard v2 – Real-time override, model retraining, and agent performance analytics.
