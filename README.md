@@ -37,7 +37,10 @@ We use HSCS to power our automated liquidity pool mechanics. Smart contracts man
 - `TransferTransaction` - Facilitate instant, transparent transfers of tokenized financing
 - `TopicCreateTransaction` - Establish immutable audit logs for different financing pools
 - `TopicMessageSubmitTransaction` - Record all financing events with timestamps and proof
-- [add smart contract service]
+- `ContractCreateFlow` - Deploy TokenPurchase smart contract for automated liquidity pool operations
+- `ContractExecuteTransaction` - Execute smart contract functions for token purchases and authorizations
+- `ContractCallQuery` - Query smart contract state for token authorizations and account permissions
+- `ContractFunctionParameters` - Encode function parameters for smart contract calls
 
 
 
@@ -51,10 +54,11 @@ We use HSCS to power our automated liquidity pool mechanics. Smart contracts man
 Silsilat/
 ├── frontend/   # NextJS application
 ├── backend/    # Express.js backend API
+    ├── src
+        ├── contracts # Smart Contract files
 ├── agent/      # Compliance Service Agent
 ├── docker-compose.yml  # Docker services configuration
 └── README.md         # This file
-[add .sol file]
 ```
 
 ### Getting Started
