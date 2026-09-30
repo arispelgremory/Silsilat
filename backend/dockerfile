@@ -12,12 +12,15 @@ COPY backend/package.json ./package.json
 # Copy lock file if it exists, otherwise install without it
 COPY backend/pnpm-lock.yaml* ./pnpm-lock.yaml
 
-# Install dependencies with fallback
+# Install dependencies with fallback.
+# --config.dangerouslyAllowAllBuilds=true lets native deps (bcrypt, esbuild, etc.)
+# run their build scripts; pnpm 10.16+ otherwise hard-errors on ignored builds in
+# non-interactive (Docker) builds via ERR_PNPM_IGNORED_BUILDS.
 RUN corepack enable && \
     if [ -f "pnpm-lock.yaml" ]; then \
-        pnpm install --frozen-lockfile; \
+        pnpm install --frozen-lockfile --config.dangerouslyAllowAllBuilds=true; \
     else \
-        pnpm install; \
+        pnpm install --config.dangerouslyAllowAllBuilds=true; \
     fi
 
 # Copy source and build

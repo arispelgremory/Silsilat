@@ -52,5 +52,14 @@
   "_moduleAliases": {
     "@": "src",
     "@public": "public"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@scarf/scarf",
+      "bcrypt",
+      "esbuild",
+      "msgpackr-extract",
+      "protobufjs"
+    ]
   }
 }

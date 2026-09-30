@@ -10,6 +10,28 @@ export interface HederaConfig {
   network: 'testnet' | 'mainnet' | 'previewnet';
 }
 
+/**
+ * Parse a Hedera operator private key, supporting both ED25519 and ECDSA.
+ *
+ * DER-encoded keys are self-describing and parsed directly. Raw hex keys are
+ * ambiguous (a 32-byte value is valid under both curves), so the key type is
+ * taken from HEDERA_OPERATOR_KEY_TYPE (ED25519 | ECDSA), defaulting to ED25519
+ * — the default account type created by the Hedera portal. Parsing a key under
+ * the wrong type yields a different public key and fails on-chain with
+ * INVALID_SIGNATURE.
+ */
+export function parseOperatorPrivateKey(key: string): PrivateKey {
+  const trimmed = key.trim();
+  const isDer = /^30[0-9a-fA-F]{2}/.test(trimmed) && trimmed.length > 64;
+  if (isDer) {
+    return PrivateKey.fromStringDer(trimmed);
+  }
+  const keyType = (process.env.HEDERA_OPERATOR_KEY_TYPE || 'ED25519').toUpperCase();
+  return keyType === 'ECDSA'
+    ? PrivateKey.fromStringECDSA(trimmed)
+    : PrivateKey.fromStringED25519(trimmed);
+}
+
 export class HederaClient {
   private client: Client;
   private config: HederaConfig;
@@ -38,7 +60,7 @@ export class HederaClient {
   private createClient(): Client {
     try {
       const operatorId = AccountId.fromString(this.config.operatorId);
-      const operatorKey = PrivateKey.fromStringECDSA(this.config.operatorKey);
+      const operatorKey = parseOperatorPrivateKey(this.config.operatorKey);
 
       const client = Client.forName(this.config.network);
       client.setOperator(operatorId, operatorKey);
@@ -58,7 +80,7 @@ export class HederaClient {
   }
 
   public getOperatorKey(): PrivateKey {
-    return PrivateKey.fromString(this.config.operatorKey);
+    return parseOperatorPrivateKey(this.config.operatorKey);
   }
 
   public getNetwork(): string {

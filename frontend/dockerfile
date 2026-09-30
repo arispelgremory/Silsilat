@@ -11,7 +11,9 @@ COPY package.json pnpm-lock.yaml ./
 COPY .env .env
 
 # Install dependencies
-RUN pnpm install
+# --config.dangerouslyAllowAllBuilds=true: pnpm 10.16+ hard-errors on ignored
+# native build scripts in non-interactive (Docker) builds.
+RUN pnpm install --config.dangerouslyAllowAllBuilds=true
 
 # Copy the rest of the application
 COPY . .
